@@ -33,7 +33,7 @@ public class JdomXml {
     public void buildXml(String netInfo, String batteryInfo) throws FileNotFoundException {
         //生成子节点
         Element root, network, phone, battery;
-        Paint.FontMetrics fontMetrics = new Paint.FontMetrics();
+
 
         root = new Element("手机信息");
         network = new Element("网络状况");

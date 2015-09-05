@@ -13,8 +13,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.think.testlistener.model.PhoneInfo;
-import com.example.think.testlistener.tool.Jdom.JdomReadXml;
+
 import com.example.think.testlistener.tool.Jdom.JdomXml;
+import com.example.think.testlistener.tool.Jdom.html.RenderSnakeHtml;
 import com.example.think.testlistener.tool.Jdom.webservice.WebService;
 
 import org.jdom.JDOMException;
@@ -44,6 +45,9 @@ public class MainActivity extends ActionBarActivity {
     private JdomXml jdomXml = null;
     private WebService webService = null;
     private PhoneInfo phoneInfo = new PhoneInfo();
+
+    //test html
+    private RenderSnakeHtml renderSnakeHtml;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,12 +115,27 @@ public class MainActivity extends ActionBarActivity {
             if (networkInfo != null && networkInfo.isAvailable() && batteryInfo != null){
                 String netInfo = "网络可用";
                 responsesToInfo(netInfo, batteryInfo);
+                responsesToHtml(netInfo, batteryInfo);
             }
             else {
                 String netInfo = "网络不可用";
                 responsesToInfo(netInfo, batteryInfo);
+                responsesToHtml(netInfo, batteryInfo);
             }
         }
+
+        //test html
+        public void responsesToHtml(String netInfo, String batteryInfo){
+
+            renderSnakeHtml = new RenderSnakeHtml(netInfo, batteryInfo);
+
+            try {
+                renderSnakeHtml.buildHtml(netInfo, batteryInfo);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 
         public void responsesToInfo(String netInfo, String batteryInfo){
             Toast.makeText(MainActivity.this, netInfo, Toast.LENGTH_SHORT).show();

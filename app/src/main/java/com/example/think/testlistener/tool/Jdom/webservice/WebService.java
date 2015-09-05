@@ -3,7 +3,7 @@ package com.example.think.testlistener.tool.Jdom.webservice;
 import android.os.Environment;
 import android.util.Log;
 
-import com.example.think.testlistener.tool.Jdom.JdomReadXml;
+
 import com.example.think.testlistener.tool.Jdom.core.src.main.java.fi.iki.elonen.NanoHTTPD;
 
 import org.jdom.JDOMException;
@@ -34,7 +34,7 @@ public class WebService extends NanoHTTPD{
 
     @Override
     public Response serve(IHTTPSession session) throws IOException, JDOMException {
-        Log.i("Zane", "hahaha");
+
         String answer = "";
         try {
 
