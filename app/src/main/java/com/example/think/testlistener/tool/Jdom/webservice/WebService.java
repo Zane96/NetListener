@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.example.think.testlistener.tool.Jdom.core.src.main.java.fi.iki.elonen.NanoHTTPD;
 
-import org.jdom.JDOMException;
+
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -33,19 +33,20 @@ public class WebService extends NanoHTTPD{
     */
 
     @Override
-    public Response serve(IHTTPSession session) throws IOException, JDOMException {
+    public Response serve(IHTTPSession session) throws IOException{
 
         String answer = "";
         try {
 
             File root = Environment.getExternalStorageDirectory();
             FileReader index = new FileReader(root.getAbsolutePath() +
-                    "/listener/phoneinfo.xml");
+                    "/listener2/phoneinfo.html");
             BufferedReader reader = new BufferedReader(index);
             String line = "";
             while ((line = reader.readLine()) != null) {
                 answer += line;
             }
+
             reader.close();
 
         } catch(IOException ioe) {

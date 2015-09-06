@@ -20,18 +20,15 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:21.0.3'
-
     compile files('libs/butterknife-7.0.1.jar')
     compile files('libs/jdom.jar')
-    compile files('libs/rendersnake-tryouts-1.8.jar')
-    compile files('libs/javax.servlet.jar')
-    compile files('libs/javax.inject.jar')
-    compile files('libs/org.springframework.web.servlet-sources-3.1.3.RELEASE.jar')
-    compile files('libs/org.springframework.core-sources-3.1.3.RELEASE.jar')
-    compile files('libs/org.springframework.web.servlet-3.1.4.RELEASE.jar')
-    compile files('libs/org.springframework.beans-3.0.2.RELEASE.jar')
-    compile files('libs/org.springframework.context-3.1.0.M1.jar')
-
+    compile files('libs/commons-lang3-3.0.1.jar')
+    compile files('libs/commons-io-2.4.jar')
+}
+android {
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+    }
 }

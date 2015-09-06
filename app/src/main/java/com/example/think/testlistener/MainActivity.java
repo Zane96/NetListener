@@ -14,11 +14,11 @@ import android.widget.Toast;
 
 import com.example.think.testlistener.model.PhoneInfo;
 
-import com.example.think.testlistener.tool.Jdom.JdomXml;
+
 import com.example.think.testlistener.tool.Jdom.html.RenderSnakeHtml;
 import com.example.think.testlistener.tool.Jdom.webservice.WebService;
 
-import org.jdom.JDOMException;
+
 
 import java.io.IOException;
 
@@ -42,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
 
     private MyBroadcastReceiver broadcastReceiver = new MyBroadcastReceiver();
     @Bind(R.id.startlistener) Button button;
-    private JdomXml jdomXml = null;
+    //private JdomXml jdomXml = null;
     private WebService webService = null;
     private PhoneInfo phoneInfo = new PhoneInfo();
 
@@ -137,18 +137,21 @@ public class MainActivity extends ActionBarActivity {
         }
 
 
+
+
+
         public void responsesToInfo(String netInfo, String batteryInfo){
             Toast.makeText(MainActivity.this, netInfo, Toast.LENGTH_SHORT).show();
             phoneInfo.setNetInfo(netInfo);
             phoneInfo.setBatteryInfo(batteryInfo);
-            try {
-
-                jdomXml = new JdomXml(phoneInfo.getNetInfo());
-                jdomXml.buildXml(phoneInfo.getNetInfo(), phoneInfo.getBatteryInfo());
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            try {
+//
+//                jdomXml = new JdomXml(phoneInfo.getNetInfo());
+//                jdomXml.buildXml(phoneInfo.getNetInfo(), phoneInfo.getBatteryInfo());
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 }

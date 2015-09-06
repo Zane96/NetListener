@@ -35,7 +35,7 @@ package com.example.think.testlistener.tool.Jdom.core.src.main.java.fi.iki.elone
 
 import android.util.Log;
 
-import org.jdom.JDOMException;
+
 
 import java.io.*;
 import java.net.InetAddress;
@@ -744,7 +744,7 @@ public abstract class NanoHTTPD {
                 // Ok, now do the serve()
                 try {
                     r = serve(this);
-                } catch (JDOMException e) {
+                } catch (Exception e){
                     e.printStackTrace();
                 }
                 if (r == null) {
@@ -1806,6 +1806,7 @@ public abstract class NanoHTTPD {
 
     /**
      * Create a text response with known length.
+     * UTF-8编码改成GBK
      */
     public Response newFixedLengthResponse(Response.IStatus status, String mimeType, String txt) {
         if (txt == null) {
@@ -1824,10 +1825,9 @@ public abstract class NanoHTTPD {
 
     /**
      * Create a text response with known length.
-     * 修改了MIME类型
      */
     public Response newFixedLengthResponse(String msg) {
-        return newFixedLengthResponse(Response.Status.OK, "text/xml", msg);
+        return newFixedLengthResponse(Response.Status.OK, "text/html", msg);
     }
 
     /**
@@ -1840,7 +1840,7 @@ public abstract class NanoHTTPD {
      *            The HTTP session
      * @return HTTP response, see class Response for details
      */
-    public Response serve(IHTTPSession session) throws IOException, JDOMException {
+    public Response serve(IHTTPSession session) throws IOException{
         Map<String, String> files = new HashMap<String, String>();
         Method method = session.getMethod();
         if (Method.PUT.equals(method) || Method.POST.equals(method)) {
